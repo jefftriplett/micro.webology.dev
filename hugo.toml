@@ -31,6 +31,8 @@ rel = "alternate"
 home = ["HTML", "RSS", "JSONFeed"]
 
 [params]
+# Shows the archive banner on every page. Remove it to hide the banner.
+archived_url = "https://jefftriplett.com"
 description = "Follow @webology on Micro.blog."
 paginate_home = false
 paginate_categories = false

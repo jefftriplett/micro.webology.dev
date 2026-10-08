@@ -1,0 +1,7 @@
+{{ with site.Params.archived_url }}
+<div class="archive-notice" role="note">
+  <div class="wrapper">
+    <p>This microblog is an archive. My new posts are at <a href="{{ . }}">{{ strings.TrimPrefix "https://" . }}</a>.</p>
+  </div>
+</div>
+{{ end }}

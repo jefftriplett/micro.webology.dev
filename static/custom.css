@@ -1,0 +1,28 @@
+/* Archive banner: pull it out of the theme's body margin and padding so it spans the top. */
+.archive-notice {
+  background: var(--accent);
+  color: var(--background);
+  margin: -120px -32px 60px;
+  padding: 14px 32px;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.archive-notice p {
+  margin: 0;
+  font-weight: 700;
+}
+
+.archive-notice a,
+.archive-notice a:hover {
+  color: var(--background);
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 800px) {
+  .archive-notice {
+    margin: -60px -12px 40px;
+    padding: 12px;
+    font-size: 16px;
+  }
+}
