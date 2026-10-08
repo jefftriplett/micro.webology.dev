@@ -28,7 +28,3 @@ Micro.blog-only features, such as replies, webmentions, and Micropub posting, di
 ```shell
 hugo server
 ```
-
-## Deploying
-
-Every push to `main` builds the site with Hugo and deploys it to GitHub Pages (see `.github/workflows/hugo.yml`).
