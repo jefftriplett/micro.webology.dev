@@ -26,18 +26,18 @@ jobs:
           sudo dpkg -i "${RUNNER_TEMP}/hugo.deb"
           hugo version
 
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
       - name: Set up Pages
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       # Pages gives the base URL: the github.io URL now, or the custom domain after one is set.
       - name: Build
         run: hugo --gc --panicOnWarning --baseURL "${{ steps.pages.outputs.base_url }}/"
 
       - name: Upload site
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: public/
 
@@ -54,4 +54,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
