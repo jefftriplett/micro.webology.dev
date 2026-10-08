@@ -23,22 +23,6 @@ Micro.blog-only features, such as replies, webmentions, and Micropub posting, di
 - `layouts/` - overrides for the theme, the archive page, and the feeds
 - `hugo.toml` - site config
 
-## Writing a post
-
-Add a Markdown file under `content/posts/` with this front matter:
-
-```yaml
----
-title: "My post"
-date: "2026-10-08T09:00:00-05:00"
-url: "/2026/10/08/my-post/"
-type: "post"
-categories: ["Python"]
----
-```
-
-`title` is optional, like on Micro.blog.
-
 ## Running locally
 
 ```shell
