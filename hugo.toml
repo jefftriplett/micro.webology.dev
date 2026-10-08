@@ -43,4 +43,4 @@ metatags_plugin_html = ""
 
 [params.author]
 username = "webology"
-avatar = "/avatar.jpg"
+avatar = "avatar.jpg"
