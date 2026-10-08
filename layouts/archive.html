@@ -1,0 +1,16 @@
+{{ define "main" }}
+		<div class="archive_categories" style="border-bottom: 1px solid lightgray; padding-bottom: 15px; margin-bottom: 30px;">
+			{{ range .Params.category_order }}{{ with site.GetPage (printf "/categories/%s" (urlize .)) }}
+				<p><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></p>
+			{{ end }}{{ end }}
+		</div>
+	<div class="h-feed">
+		{{ range where site.RegularPages "Type" "post" }}
+			<p class="h-entry">
+				<a href="{{ .Permalink }}" class="u-url"><time class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05-0700" }}">{{ .Date.Format "2006-01-02" }}</time></a>:
+				{{ with .Title }}<span class="p-name"><b>{{ . }}</b></span>{{ end }}
+				<span class="p-summary">{{ .Summary | plainify | htmlUnescape | truncate 100 " …" }}</span>
+			</p>
+		{{ end }}
+	</div>
+{{ end }}

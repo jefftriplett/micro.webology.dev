@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div class="home h-feed">
+
+  <ul class="post-list">
+	{{ $paginator := .Paginate (where .Pages.ByDate.Reverse "Type" "post") (index .Site.Params "archive-paginate" | default 25) }}
+	{{ range $paginator.Pages  }}
+      <li class="h-entry {{ range .Params.categories }}{{ . }}{{ end }}">
+        
+    {{ if isset .Params "categories" }}
+    {{ range $index, $category := .Params.categories }}
+        {{ $href := printf "/categories/%s" (urlize $category) | absURL }}
+        {{ if gt $index 0 }}<span class="seperator">,</span> {{ end }}
+        <h3>{{ $category }}</h3>
+    {{ end }}
+    {{ end }}    
+        
+		{{ if .Title }}
+			<h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+		{{ end }}
+
+      <div class="e-content">
+        {{ .Content }}
+      </div>
+        
+      <a href="{{ .Permalink }}" class="u-url date">{{ .Date.Format "Monday January 2, 2006" }}</a>
+      </li>
+    {{ end }}
+  </ul>
+
+</div>
+{{ end }}

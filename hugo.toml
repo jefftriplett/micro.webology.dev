@@ -1,0 +1,46 @@
+baseURL = "https://micro.webology.dev/"
+locale = "en-us"
+title = "Jeff Triplett's Micro.blog"
+# Outpost is the production Micro.blog theme. plugin-metatags is a Micro.blog plugin.
+theme = ["outpost", "plugin-metatags"]
+capitalizeListTitles = false
+disableKinds = ["taxonomy"]
+
+[taxonomies]
+category = "categories"
+
+[pagination]
+pagerSize = 25
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[mediaTypes."application/feed+json"]
+suffixes = ["json"]
+
+[outputFormats.RSS]
+baseName = "feed"
+
+[outputFormats.JSONFeed]
+mediaType = "application/feed+json"
+baseName = "feed"
+isPlainText = true
+rel = "alternate"
+
+[outputs]
+home = ["HTML", "RSS", "JSONFeed"]
+
+[params]
+description = "Follow @webology on Micro.blog."
+paginate_home = false
+paginate_categories = false
+twitter_username = "@webology"
+github_username = "@jefftriplett"
+instagram_username = "@jefftriplett"
+plugins_css = ["/css/stoot.css?v=1"]
+plugins_html = ["plugin_metatags.html"]
+metatags_plugin_html = ""
+
+[params.author]
+username = "webology"
+avatar = "/avatar.jpg"

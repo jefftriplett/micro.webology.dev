@@ -1,0 +1,38 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+
+  <title>
+      {{ if and (not .IsHome) .Title }}{{ .Title }} - {{ end }}{{ site.Title }}
+  </title>
+
+  <meta name="description" content="{{ if .IsHome }}{{ site.Params.description }}{{ else }}{{ .Summary | plainify | htmlUnescape }}{{ end }}">
+
+  <link rel="shortcut icon" href="{{ "favicon.png" | relURL }}" type="image/x-icon" />
+  <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "custom.css" | relURL }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Rubik:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  {{ if .IsHome -}}
+  <link href="{{ "feed.xml" | absURL }}" rel="alternate" type="application/rss+xml" title="{{ site.Title }}" />
+  <link rel="alternate" type="application/json" title="{{ site.Title }}" href="{{ "feed.json" | absURL }}" />
+  {{ end -}}
+
+  {{ with site.Params.author.username }}<link rel="me" href="https://micro.blog/{{ . }}" />{{ end }}
+  {{ with site.Params.twitter_username }}<link rel="me" href="https://twitter.com/{{ . }}" />{{ end }}
+  {{ with site.Params.github_username }}<link rel="me" href="https://github.com/{{ . }}" />{{ end }}
+  {{ with site.Params.instagram_username }}<link rel="me" href="https://instagram.com/{{ . }}" />{{ end }}
+
+  {{ range site.Params.plugins_css }}
+    <link rel="stylesheet" href="{{ . }}" />
+  {{ end }}
+  {{ range site.Params.plugins_html }}
+    {{ partial . $ }}
+  {{ end }}
+  {{ partial "opengraph.html" . }}
+</head>
